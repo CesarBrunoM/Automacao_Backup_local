@@ -2,7 +2,7 @@
     "dados_email":
     {
         "remetente": "Origem@gmail.com",
-        "senha": "Sua Senha aqui",
+        "senha": "Sua Senha aqui ",
         "destinatario": "Destino@gmail.com"
     },
     "caminho_arquivos":{

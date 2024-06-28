@@ -229,7 +229,7 @@ class backup:
                 # Enviar email
                 server.sendmail(remetente, destinatario, msg.as_string())
                 self.registrar_log(self.logger, f'Enviando e-mail de: {remetente} para: {destinatario}.', 'info')
-                                
+                                 
                 
             # Email enviado com sucesso
             return True, "Email enviado com sucesso!"     
