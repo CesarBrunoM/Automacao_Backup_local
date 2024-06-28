@@ -1,0 +1,13 @@
+{
+    "dados_email":
+    {
+        "remetente": "Origem@gmail.com",
+        "senha": "Sua Senha aqui",
+        "destinatario": "Destino@gmail.com"
+    },
+    "caminho_arquivos":{
+        "logs": "C:/Pasta de logs",
+        "origem": "C:/pasta de origem",
+        "destino": "C:/pasta de destino"        
+    }
+}
