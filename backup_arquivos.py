@@ -13,20 +13,21 @@ import re
 class backup:
     def start_backup(self):        
         # Lendo json com dados        
-        arquivo_json = '.\dados.json'
+        arquivo_json = '.\Automacao_Backup_local\dados.json'
         self.ler_json(arquivo_json)
         
         pasta_logs = self.local_logs
         
         self.logger = self.configurar_logger(pasta_logs)
         # Copia os arquivos
+        self.deletar_arquivos(self.local_destino)
+        
         self.copiar_arquivos()
         
         log_arquivo = self.caminho_log
         self.success
         
-        if self.success == 'S':
-            self.deletar_arquivos(self.local_origem)
+        if self.success == 'S':            
             assunto = "Sucesso ao realizar backup!"
             mensagem = f'Backup realizado. \nSeguem os logs em anexo.'
         else:
@@ -166,18 +167,18 @@ class backup:
         return self.success                
                 
 
-    def deletar_arquivos(self, origem):
+    def deletar_arquivos(self, destino):
         # Verifica se a pasta existe
-        if not os.path.exists(origem):
-            self.registrar_log(self.logger, f'A pasta {origem} nao existe.', 'warning')
+        if not os.path.exists(destino):
+            self.registrar_log(self.logger, f'A pasta {destino} nao existe.', 'warning')
             return
         
         # Lista todos os arquivos na pasta
-        arquivos = os.listdir(origem)
+        arquivos = os.listdir(destino)
         
         # Itera sobre os arquivos e os deleta
         for arquivo in arquivos:
-            caminho_arquivo = os.path.join(origem, arquivo)
+            caminho_arquivo = os.path.join(destino, arquivo)
             try:
                 # Deleta apenas arquivos, nao subpastas
                 if os.path.isfile(caminho_arquivo):
